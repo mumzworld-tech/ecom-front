@@ -13,7 +13,7 @@
         "test": "jest",
         "format": "prettier -w .",
         "format:check": "prettier -c .",
-        "generate": "graphql-codegen --config codegen.yml"
+        "generate": "graphql-codegen --config codegen.yml -r dotenv/config"
     },
     "dependencies": {
         "@apollo/client": "^3.6.9",
