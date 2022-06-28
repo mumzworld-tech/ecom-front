@@ -1,13 +1,22 @@
-Mumzworld Ecom Frontend Test Project
+:pill: Mumzworld Ecom Frontend Test Project
 
 ## Getting Started
 
-First, run the development server:
+-   Clone the repository
+-   Create .env based on .env.example
+-   Run
 
 ```bash
-npm run dev
-# or
+yarn install
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   Run `bash yarn generate` if you need to update graphql types
+
+## Stack
+
+-   NextJs
+-   Tailwind
+-   Apollo Graphql Client
+-   Graphql Code Generator
+-   headlessui/react
