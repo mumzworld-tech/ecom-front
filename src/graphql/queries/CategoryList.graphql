@@ -1,0 +1,8 @@
+query getCategories {
+    categories {
+        id
+        name
+        url_key
+        status
+    }
+}
