@@ -17,7 +17,7 @@ export default function Searchbar() {
             <button
                 type='submit'
                 title='Submit your search query'
-                className='absolute top-0 right-0 h-10 w-10 rounded-r bg-primary-l2 text-white md:h-12 md:w-12'
+                className='absolute top-0 right-0 h-10 w-10 rounded-r bg-primary-l2 text-white'
             >
                 <span className='inline-flex touch-manipulation items-center justify-center align-middle'>
                     <SearchIcon width='14' height='14' />
