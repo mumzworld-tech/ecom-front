@@ -1,8 +1,11 @@
 query getCategories {
-    categories {
-        id
-        name
-        url_key
-        status
+  categories(filter: {include_in_menu: {eq: 1}, status: {eq: ENABLED}, level: {eq: 1}}){        
+      id
+      name
+      url_key
+      image
+      status
+      created_at
+      updated_at
     }
 }

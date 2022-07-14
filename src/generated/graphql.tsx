@@ -26,6 +26,8 @@ export type Category = {
   created_at: Scalars['DateTime'];
   id: Scalars['ID'];
   image?: Maybe<Scalars['String']>;
+  include_in_menu: Scalars['Float'];
+  level: Scalars['Float'];
   name: Scalars['String'];
   status: Status;
   updated_at: Scalars['DateTime'];
@@ -35,6 +37,8 @@ export type Category = {
 export type CategoryAggregateGroupBy = {
   __typename?: 'CategoryAggregateGroupBy';
   id?: Maybe<Scalars['ID']>;
+  include_in_menu?: Maybe<Scalars['Float']>;
+  level?: Maybe<Scalars['Float']>;
   name?: Maybe<Scalars['String']>;
   status?: Maybe<Status>;
   url_key?: Maybe<Scalars['String']>;
@@ -43,12 +47,16 @@ export type CategoryAggregateGroupBy = {
 export type CategoryAvgAggregate = {
   __typename?: 'CategoryAvgAggregate';
   id?: Maybe<Scalars['Float']>;
+  include_in_menu?: Maybe<Scalars['Float']>;
+  level?: Maybe<Scalars['Float']>;
   status?: Maybe<Scalars['Float']>;
 };
 
 export type CategoryCountAggregate = {
   __typename?: 'CategoryCountAggregate';
   id?: Maybe<Scalars['Int']>;
+  include_in_menu?: Maybe<Scalars['Int']>;
+  level?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['Int']>;
   status?: Maybe<Scalars['Int']>;
   url_key?: Maybe<Scalars['Int']>;
@@ -57,6 +65,8 @@ export type CategoryCountAggregate = {
 export type CategoryDeleteFilter = {
   and?: InputMaybe<Array<CategoryDeleteFilter>>;
   id?: InputMaybe<IdFilterComparison>;
+  include_in_menu?: InputMaybe<NumberFieldComparison>;
+  level?: InputMaybe<NumberFieldComparison>;
   name?: InputMaybe<StringFieldComparison>;
   or?: InputMaybe<Array<CategoryDeleteFilter>>;
   status?: InputMaybe<CategoryStatusFilterComparison>;
@@ -68,6 +78,8 @@ export type CategoryDeleteResponse = {
   created_at?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['ID']>;
   image?: Maybe<Scalars['String']>;
+  include_in_menu?: Maybe<Scalars['Float']>;
+  level?: Maybe<Scalars['Float']>;
   name?: Maybe<Scalars['String']>;
   status?: Maybe<Status>;
   updated_at?: Maybe<Scalars['DateTime']>;
@@ -77,6 +89,8 @@ export type CategoryDeleteResponse = {
 export type CategoryFilter = {
   and?: InputMaybe<Array<CategoryFilter>>;
   id?: InputMaybe<IdFilterComparison>;
+  include_in_menu?: InputMaybe<NumberFieldComparison>;
+  level?: InputMaybe<NumberFieldComparison>;
   name?: InputMaybe<StringFieldComparison>;
   or?: InputMaybe<Array<CategoryFilter>>;
   status?: InputMaybe<CategoryStatusFilterComparison>;
@@ -86,6 +100,8 @@ export type CategoryFilter = {
 export type CategoryMaxAggregate = {
   __typename?: 'CategoryMaxAggregate';
   id?: Maybe<Scalars['ID']>;
+  include_in_menu?: Maybe<Scalars['Float']>;
+  level?: Maybe<Scalars['Float']>;
   name?: Maybe<Scalars['String']>;
   status?: Maybe<Status>;
   url_key?: Maybe<Scalars['String']>;
@@ -94,6 +110,8 @@ export type CategoryMaxAggregate = {
 export type CategoryMinAggregate = {
   __typename?: 'CategoryMinAggregate';
   id?: Maybe<Scalars['ID']>;
+  include_in_menu?: Maybe<Scalars['Float']>;
+  level?: Maybe<Scalars['Float']>;
   name?: Maybe<Scalars['String']>;
   status?: Maybe<Status>;
   url_key?: Maybe<Scalars['String']>;
@@ -107,6 +125,8 @@ export type CategorySort = {
 
 export enum CategorySortFields {
   Id = 'id',
+  IncludeInMenu = 'include_in_menu',
+  Level = 'level',
   Name = 'name',
   Status = 'status',
   UrlKey = 'url_key'
@@ -122,12 +142,16 @@ export type CategoryStatusFilterComparison = {
 export type CategorySumAggregate = {
   __typename?: 'CategorySumAggregate';
   id?: Maybe<Scalars['Float']>;
+  include_in_menu?: Maybe<Scalars['Float']>;
+  level?: Maybe<Scalars['Float']>;
   status?: Maybe<Scalars['Float']>;
 };
 
 export type CategoryUpdateFilter = {
   and?: InputMaybe<Array<CategoryUpdateFilter>>;
   id?: InputMaybe<IdFilterComparison>;
+  include_in_menu?: InputMaybe<NumberFieldComparison>;
+  level?: InputMaybe<NumberFieldComparison>;
   name?: InputMaybe<StringFieldComparison>;
   or?: InputMaybe<Array<CategoryUpdateFilter>>;
   status?: InputMaybe<CategoryStatusFilterComparison>;
@@ -138,6 +162,8 @@ export type CreateCategory = {
   created_at?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['ID']>;
   image?: InputMaybe<Scalars['String']>;
+  include_in_menu?: InputMaybe<Scalars['Float']>;
+  level?: InputMaybe<Scalars['Float']>;
   name?: InputMaybe<Scalars['String']>;
   status?: InputMaybe<Status>;
   updated_at?: InputMaybe<Scalars['DateTime']>;
@@ -538,6 +564,8 @@ export type ProductFilter = {
 export type ProductFilterCategoryFilter = {
   and?: InputMaybe<Array<ProductFilterCategoryFilter>>;
   id?: InputMaybe<IdFilterComparison>;
+  include_in_menu?: InputMaybe<NumberFieldComparison>;
+  level?: InputMaybe<NumberFieldComparison>;
   name?: InputMaybe<StringFieldComparison>;
   or?: InputMaybe<Array<ProductFilterCategoryFilter>>;
   status?: InputMaybe<CategoryStatusFilterComparison>;
@@ -734,6 +762,8 @@ export type UpdateCategory = {
   created_at?: InputMaybe<Scalars['DateTime']>;
   id?: InputMaybe<Scalars['ID']>;
   image?: InputMaybe<Scalars['String']>;
+  include_in_menu?: InputMaybe<Scalars['Float']>;
+  level?: InputMaybe<Scalars['Float']>;
   name?: InputMaybe<Scalars['String']>;
   status?: InputMaybe<Status>;
   updated_at?: InputMaybe<Scalars['DateTime']>;
@@ -797,16 +827,21 @@ export type UpdateProduct = {
 export type GetCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCategoriesQuery = { __typename?: 'Query', categories: Array<{ __typename?: 'Category', id: string, name: string, url_key: string, status: Status }> };
+export type GetCategoriesQuery = { __typename?: 'Query', categories: Array<{ __typename?: 'Category', id: string, name: string, url_key: string, image?: string | null, status: Status, created_at: any, updated_at: any }> };
 
 
 export const GetCategoriesDocument = gql`
     query getCategories {
-  categories {
+  categories(
+    filter: {include_in_menu: {eq: 1}, status: {eq: ENABLED}, level: {eq: 1}}
+  ) {
     id
     name
     url_key
+    image
     status
+    created_at
+    updated_at
   }
 }
     `;
